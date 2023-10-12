@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animated_theme_switcher: ^2.0.8
+  awesome_dialog: ^3.1.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:laza/constants.dart';
+import 'package:laza/core/utils/app_router.dart';
 import 'package:laza/core/utils/styles.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/core/utils/widgets/custom_icon.dart';
@@ -15,7 +17,8 @@ class SignUpViewBody extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-          child: Column(
+          child: ListView(
+            padding: EdgeInsets.zero,
             children: [
               const SizedBox(
                 height: kTopSpace,
@@ -28,7 +31,9 @@ class SignUpViewBody extends StatelessWidget {
                 'Sign Up',
                 style: Styles.textstyle28,
               ),
-              const Spacer(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
               Row(
                 children: [
                   Text(
@@ -62,8 +67,31 @@ class SignUpViewBody extends StatelessWidget {
                 ],
               ),
               const CustomTextFormField(),
-              const Spacer(
-                flex: 2,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account ? ',
+                    style: Styles.textstyle15.copyWith(color: kGreyText),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .pushReplacement(AppRouter.SignInRoute);
+                    },
+                    child: Text(
+                      'Sign In ',
+                      style: Styles.textstyle15
+                          .copyWith(fontWeight: FontWeight.w500),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
               ),
             ],
           ),

@@ -17,7 +17,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(
+    NavigateMethod();
+  }
+
+  Future<Null> NavigateMethod() {
+    return Future.delayed(
       Duration(seconds: 1),
       () {
         isVisible = true;
