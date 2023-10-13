@@ -5,20 +5,31 @@ import 'package:laza/core/utils/app_router.dart';
 import 'package:laza/core/utils/styles.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/core/utils/widgets/custom_icon.dart';
+import 'package:laza/features/signUp/presentation/views/widgets/already_have_account_section.dart';
+import 'package:laza/features/signUp/presentation/views/widgets/sign_up_fields_section.dart';
 
 import '../../../../../core/utils/widgets/custom_text_form_field.dart';
 
-class SignUpViewBody extends StatelessWidget {
+class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
 
+  @override
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+}
+
+class _SignUpViewBodyState extends State<SignUpViewBody> {
+  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
+  final TextEditingController _controller3 = TextEditingController();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final GlobalKey<FormState> _formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-          child: ListView(
-            padding: EdgeInsets.zero,
+          child: Column(
             children: [
               const SizedBox(
                 height: kTopSpace,
@@ -31,67 +42,29 @@ class SignUpViewBody extends StatelessWidget {
                 'Sign Up',
                 style: Styles.textstyle28,
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'UserName',
-                    style: Styles.textstyle13.copyWith(color: kGreyText),
-                  ),
-                ],
-              ),
-              const CustomTextFormField(),
-              const SizedBox(
-                height: 25,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Password',
-                    style: Styles.textstyle13.copyWith(color: kGreyText),
-                  ),
-                ],
-              ),
-              const CustomTextFormField(),
-              const SizedBox(
-                height: 25,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Email Address',
-                    style: Styles.textstyle13.copyWith(color: kGreyText),
-                  ),
-                ],
-              ),
-              const CustomTextFormField(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account ? ',
-                    style: Styles.textstyle15.copyWith(color: kGreyText),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      GoRouter.of(context)
-                          .pushReplacement(AppRouter.SignInRoute);
-                    },
-                    child: Text(
-                      'Sign In ',
-                      style: Styles.textstyle15
-                          .copyWith(fontWeight: FontWeight.w500),
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1,
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
+                    SignUpFiledsSection(
+                      autovalidateMode: autovalidateMode,
+                      formKey: _formKey,
+                      userNameController: _controller,
+                      emailController: _controller2,
+                      passwordController: _controller3,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                    ),
+                    AlreadyHaveAccountSection(),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -100,7 +73,15 @@ class SignUpViewBody extends StatelessWidget {
           left: 0,
           right: 0,
           bottom: 0,
-          child: CustomButton(text: 'Sign UP', onPressed: () {}),
+          child: CustomButton(
+              text: 'Sign UP',
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              }),
         ),
       ],
     );

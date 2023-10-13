@@ -5,11 +5,19 @@ import 'package:laza/core/theme/theme.dart';
 import 'package:laza/core/theme/theme_cubit/theme_cubit.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key});
-
+  const CustomTextFormField({super.key, this.controller});
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      validator: (value) {
+        if (value!.isEmpty ?? true) {
+          return 'This field can\'t be empty';
+        } else {
+          return null;
+        }
+      },
       onTapOutside: (event) {
         FocusManager.instance.primaryFocus?.unfocus();
       },
