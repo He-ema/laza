@@ -4,4 +4,5 @@ class AssetData {
   static const facebook = 'assets/images/Facebook.png';
   static const google = 'assets/images/Google.png';
   static const twitter = 'assets/images/Twitter.png';
+  static const cloud = 'assets/images/cloud.png';
 }

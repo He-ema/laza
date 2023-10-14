@@ -99,7 +99,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.25,
                         ),
-                        AlreadyHaveAccountSection(),
+                        const AlreadyHaveAccountSection(),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
@@ -117,7 +117,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   text: 'Sign UP',
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      await BlocProvider.of<AuthCubit>(context).signInwithEmail(
+                      await BlocProvider.of<AuthCubit>(context).signUpwithEmail(
                           email: _controller2.text,
                           password: _controller3.text,
                           name: _controller.text);

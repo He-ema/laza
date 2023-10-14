@@ -6,6 +6,9 @@ class OtpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OtpViewBody();
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: OtpViewBody(),
+    );
   }
 }

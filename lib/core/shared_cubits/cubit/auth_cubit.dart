@@ -15,7 +15,7 @@ class AuthCubit extends Cubit<AuthState> {
   final CollectionReference _users =
       FirebaseFirestore.instance.collection(kUsersCollectionReference);
 
-  Future<void> signInwithEmail({
+  Future<void> signUpwithEmail({
     required String email,
     required String password,
     required String name,
