@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-void ShowAwesomeDialouge(
-    {required context,
-    required String body,
-    required String desctiption,
-    @required DialogType? dialogType}) {
+void ShowAwesomeDialouge({
+  required context,
+  required String body,
+  required String desctiption,
+  @required DialogType? dialogType,
+  @required void Function()? btnOkOnPress,
+}) {
   AwesomeDialog(
     context: context,
     animType: AnimType.scale,
