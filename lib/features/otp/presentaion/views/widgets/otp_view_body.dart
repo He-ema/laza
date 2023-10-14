@@ -141,8 +141,8 @@ class _OtpViewBodyState extends State<OtpViewBody> {
           left: 0,
           child: CustomButton(
             text: 'Resend Code',
-            onPressed: () {
-              myauth.sendOTP();
+            onPressed: () async {
+              await myauth.sendOTP();
             },
           ),
         ),

@@ -27,6 +27,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: email,
         password: password,
       );
+
       await createUser(
         email: email,
         name: name,
