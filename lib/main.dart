@@ -1,9 +1,11 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:laza/core/shared_cubits/cubit/auth_cubit.dart';
 import 'package:laza/core/theme/theme_cubit/theme_cubit.dart';
 import 'package:laza/core/utils/app_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:laza/simple_bloc_observer.dart';
 
 import 'firebase_options.dart';
 
@@ -12,11 +14,20 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  runApp(BlocProvider(
-    create: (context) => ThemeCubit(),
-    child: const MyApp(),
-  ));
+  Bloc.observer = SimpleBlocObserver();
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AuthCubit(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
