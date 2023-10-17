@@ -53,7 +53,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           isLoading = false;
           setState(() {});
           if (BlocProvider.of<AuthCubit>(context).verified == true) {
-            GoRouter.of(context).pushReplacement(AppRouter.homeViewRoute,
+            GoRouter.of(context).pushReplacement(AppRouter.BottomNavBarRoute,
                 extra: BlocProvider.of<AuthCubit>(context).email);
           } else {
             ShowAwesomeDialouge(

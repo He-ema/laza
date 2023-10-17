@@ -171,7 +171,7 @@ class _OtpViewBodyState extends State<OtpViewBody> {
         users.doc(BlocProvider.of<AuthCubit>(context).email).update({
           kVerified: true,
         });
-        GoRouter.of(context).push(AppRouter.homeViewRoute,
+        GoRouter.of(context).push(AppRouter.BottomNavBarRoute,
             extra: BlocProvider.of<AuthCubit>(context).email);
       } else {
         _controller.clear();

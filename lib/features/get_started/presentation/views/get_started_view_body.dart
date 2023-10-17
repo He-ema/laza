@@ -40,7 +40,7 @@ class _GetStartedViewBodyState extends State<GetStartedViewBody> {
         if (state is AuthSuccess) {
           isLoading = false;
           setState(() {});
-          GoRouter.of(context).pushReplacement(AppRouter.homeViewRoute,
+          GoRouter.of(context).pushReplacement(AppRouter.BottomNavBarRoute,
               extra: BlocProvider.of<AuthCubit>(context).email);
         }
 
