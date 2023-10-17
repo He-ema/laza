@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:laza/constants.dart';
+import 'package:laza/core/theme/theme.dart';
+import 'package:laza/core/theme/theme_cubit/theme_cubit.dart';
 import 'package:laza/features/home/presentation/views/home_view.dart';
 
 class BottomNavigationBarView extends StatefulWidget {
@@ -33,13 +37,17 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
           setState(() {});
         },
         tabBackgroundColor:
-            Theme.of(context).colorScheme.tertiary.withOpacity(0.3),
-        activeColor: Theme.of(context).colorScheme.tertiary,
+            Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
+        activeColor: BlocProvider.of<ThemeCubit>(context).themeData == lightMode
+            ? Theme.of(context).colorScheme.tertiary
+            : kPrimaryColor,
         tabMargin: const EdgeInsets.all(10),
         gap: 8,
-        color: Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
+        color: BlocProvider.of<ThemeCubit>(context).themeData == lightMode
+            ? Theme.of(context).colorScheme.tertiary.withOpacity(0.5)
+            : Colors.white54,
         tabBorderRadius: 15,
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         padding: const EdgeInsets.all(40),
         curve: Curves.easeInQuart,
         // ignore: prefer_const_literals_to_create_immutables

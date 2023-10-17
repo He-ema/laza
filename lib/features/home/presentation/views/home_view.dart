@@ -9,6 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ThemeSwitchingArea(
       child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
         drawer: MyDrawer(),
         // appBar: AppBar(),
       ),
