@@ -37,10 +37,10 @@ class HomeViewBody extends StatelessWidget {
               color: kPrimaryColor,
             ),
             centerTitle: true,
-            title: Text('Laza'),
+            title: const Text('Laza'),
           ),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: Expanded(
             child: ItemsGridView(),
           ),
