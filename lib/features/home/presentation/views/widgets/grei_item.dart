@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
-class Item extends StatelessWidget {
-  const Item({
+class GridItem extends StatelessWidget {
+  const GridItem({
     super.key,
   });
 

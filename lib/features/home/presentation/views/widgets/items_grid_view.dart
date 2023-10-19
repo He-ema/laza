@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
-import 'item.dart';
+import 'grei_item.dart';
 
 class ItemsGridView extends StatelessWidget {
   const ItemsGridView({
@@ -21,7 +21,7 @@ class ItemsGridView extends StatelessWidget {
         crossAxisSpacing: 10, // spacing between columns
       ),
       itemBuilder: (context, index) {
-        return Item();
+        return GridItem();
       },
     );
   }
