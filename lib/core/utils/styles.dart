@@ -28,4 +28,9 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
     color: kGreyText,
   );
+  static const textstyle11 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 13,
+    fontWeight: FontWeight.w500,
+  );
 }

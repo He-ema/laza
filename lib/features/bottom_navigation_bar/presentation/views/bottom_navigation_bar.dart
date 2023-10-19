@@ -4,6 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:laza/constants.dart';
 import 'package:laza/core/theme/theme.dart';
 import 'package:laza/core/theme/theme_cubit/theme_cubit.dart';
+import 'package:laza/features/favourites/presentation/views/favourite_view.dart';
 import 'package:laza/features/home/presentation/views/home_view.dart';
 
 class BottomNavigationBarView extends StatefulWidget {
@@ -19,10 +20,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
   int currentIndex = 0;
   List views = [
     HomeView(),
-    Container(
-      color: Colors.green,
-      width: double.infinity,
-    ),
+    FavouriteView(),
     Container(),
     Container(),
   ];
