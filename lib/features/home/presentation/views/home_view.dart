@@ -7,12 +7,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ThemeSwitchingArea(
-      child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        drawer: MyDrawer(),
-        // appBar: AppBar(),
-      ),
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      drawer: MyDrawer(),
+      // appBar: AppBar(),
     );
   }
 }

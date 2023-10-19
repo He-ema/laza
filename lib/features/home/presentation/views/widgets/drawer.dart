@@ -1,13 +1,9 @@
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
-import 'package:day_night_themed_switch/day_night_themed_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza/constants.dart';
-import 'package:laza/core/theme/theme.dart';
-import 'package:laza/core/theme/theme_cubit/theme_cubit.dart';
 import 'package:laza/core/utils/asset_data.dart';
 import 'package:laza/core/utils/styles.dart';
 import 'package:laza/core/utils/widgets/custom_icon.dart';
+import 'package:laza/features/home/presentation/views/widgets/theme_switching_list_tile.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -19,14 +15,14 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          SizedBox(
+          const SizedBox(
             height: kTopSpace,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
+          const Padding(
+            padding: EdgeInsets.only(left: 16),
             child: CustomIcon(),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -37,7 +33,7 @@ class MyDrawer extends StatelessWidget {
                 radius: 45,
                 child: Image.asset(AssetData.man),
               ),
-              Column(
+              const Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -51,69 +47,73 @@ class MyDrawer extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Theme.of(context).colorScheme.secondary,
                 ),
-                child: Text('3 Orders'),
+                child: const Text('3 Orders'),
               )
             ],
           ),
+          const ThemeSwitchingListTile(),
           ListTile(
-            leading: const Icon(Icons.dark_mode_outlined),
-            title: const Text('Dark Mode'),
-            trailing: SizedBox(
-              height: 20,
-              child: ThemeSwitcher(
-                builder: (context) => DayNightSwitch(
-                  value: BlocProvider.of<ThemeCubit>(context).themeData ==
-                          lightMode
-                      ? false
-                      : true,
-                  onChanged: (value) {
-                    BlocProvider.of<ThemeCubit>(context).toggleTheme();
-                    ThemeSwitcher.of(context).changeTheme(
-                        theme: BlocProvider.of<ThemeCubit>(context).themeData,
-                        isReversed:
-                            BlocProvider.of<ThemeCubit>(context).themeData ==
-                                    darkMode
-                                ? false
-                                : true);
-                  },
-                ),
-              ),
+            leading: const Icon(Icons.error_outline),
+            title: const Text(
+              'Account information',
+              style: Styles.textstyle15,
             ),
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
+            leading: const Icon(Icons.lock_outline_rounded),
+            title: const Text(
+              'Password',
+              style: Styles.textstyle15,
+            ),
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
+            leading: const Icon(Icons.shopping_bag_outlined),
+            title: const Text(
+              'Orders',
+              style: Styles.textstyle15,
+            ),
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
+            leading: const Icon(Icons.account_balance_wallet_outlined),
+            title: const Text(
+              'My Cards',
+              style: Styles.textstyle15,
+            ),
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.question_mark_sharp),
-            title: const Text('marks'),
+            leading: const Icon(Icons.favorite_border_rounded),
+            title: const Text(
+              'WishList',
+              style: Styles.textstyle15,
+            ),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            title: const Text(
+              'Settings',
+              style: Styles.textstyle15,
+            ),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.logout,
+              color: Colors.red,
+            ),
+            title: Text(
+              'Logout',
+              style: Styles.textstyle15.copyWith(color: Colors.red),
+            ),
             onTap: () {},
           ),
         ],
