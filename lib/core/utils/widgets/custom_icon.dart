@@ -9,7 +9,7 @@ class CustomIcon extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(50),
@@ -18,7 +18,7 @@ class CustomIcon extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).pop();
             },
-            child: Icon(Icons.arrow_back),
+            child: contetnt ?? const Icon(Icons.arrow_back),
           ),
         )
       ],

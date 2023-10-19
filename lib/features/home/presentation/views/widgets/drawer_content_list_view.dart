@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:laza/features/home/presentation/views/widgets/theme_switching_list_tile.dart';
 
 import '../../../../../constants.dart';
+import '../../../../../core/theme/theme.dart';
+import '../../../../../core/theme/theme_cubit/theme_cubit.dart';
+import '../../../../../core/utils/asset_data.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/custom_icon.dart';
 import 'drawer_info_list_tile.dart';
 
-class Drawer_content_list_view extends StatelessWidget {
-  const Drawer_content_list_view({
+class Drawercontentlistview extends StatelessWidget {
+  const Drawercontentlistview({
     super.key,
   });
 
@@ -19,9 +24,14 @@ class Drawer_content_list_view extends StatelessWidget {
         const SizedBox(
           height: kTopSpace,
         ),
-        const Padding(
+        Padding(
           padding: EdgeInsets.only(left: 16),
-          child: CustomIcon(),
+          child: CustomIcon(
+            contetnt: SvgPicture.asset(AssetData.openedMenu,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black),
+          ),
         ),
         const SizedBox(
           height: 20,
@@ -37,7 +47,10 @@ class Drawer_content_list_view extends StatelessWidget {
           onTap: () {},
         ),
         ListTile(
-          leading: const Icon(Icons.lock_outline_rounded),
+          leading: SvgPicture.asset(AssetData.lock,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black),
           title: const Text(
             'Password',
             style: Styles.textstyle15,
@@ -45,7 +58,10 @@ class Drawer_content_list_view extends StatelessWidget {
           onTap: () {},
         ),
         ListTile(
-          leading: const Icon(Icons.shopping_bag_outlined),
+          leading: SvgPicture.asset(AssetData.bag,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black),
           title: const Text(
             'Orders',
             style: Styles.textstyle15,
@@ -53,7 +69,10 @@ class Drawer_content_list_view extends StatelessWidget {
           onTap: () {},
         ),
         ListTile(
-          leading: const Icon(Icons.account_balance_wallet_outlined),
+          leading: SvgPicture.asset(AssetData.wallet,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black),
           title: const Text(
             'My Cards',
             style: Styles.textstyle15,
@@ -61,7 +80,10 @@ class Drawer_content_list_view extends StatelessWidget {
           onTap: () {},
         ),
         ListTile(
-          leading: const Icon(Icons.favorite_border_rounded),
+          leading: SvgPicture.asset(AssetData.heart,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black),
           title: const Text(
             'WishList',
             style: Styles.textstyle15,
