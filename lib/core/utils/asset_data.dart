@@ -12,4 +12,8 @@ class AssetData {
   static const verified = 'assets/images/verified.svg';
   static const openedMenu = 'assets/images/opened_menu.svg';
   static const closedMenu = 'assets/images/closed_menu.svg';
+  static const adidas = 'assets/images/Adidas.svg';
+  static const fila = 'assets/images/fila-9 1.svg';
+  static const puma = 'assets/images/puma-logo 1.svg';
+  static const nike = 'assets/images/nike.svg';
 }

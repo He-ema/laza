@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:laza/constants.dart';
+import 'package:laza/core/theme/theme.dart';
+import 'package:laza/core/utils/asset_data.dart';
 import 'package:laza/core/utils/styles.dart';
 
 class FavouriteViewBody extends StatelessWidget {
@@ -13,35 +16,8 @@ class FavouriteViewBody extends StatelessWidget {
           height: kTopSpace,
         ),
         Center(
-          child: Column(
-            children: [
-              Container(
-                color: Colors.red,
-                child: Image.asset('assets/images/test.png'),
-              ),
-              Container(
-                width: 150,
-                margin: const EdgeInsets.symmetric(vertical: 5),
-                child: const Text(
-                  'Nike Sportswear Club Fleece',
-                  style: Styles.textstyle11,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              Container(
-                width: 150,
-                child: Text(
-                  '\$99',
-                  style:
-                      Styles.textstyle13.copyWith(fontWeight: FontWeight.bold),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          ),
-        )
+            // child: BrandItem(),
+            )
       ],
     );
   }

@@ -11,9 +11,10 @@ class ItemsGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
       shrinkWrap: true,
       itemCount: 6,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       clipBehavior: Clip.none,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2, //number of columns on the screen
@@ -21,7 +22,7 @@ class ItemsGridView extends StatelessWidget {
         crossAxisSpacing: 10, // spacing between columns
       ),
       itemBuilder: (context, index) {
-        return GridItem();
+        return const GridItem();
       },
     );
   }

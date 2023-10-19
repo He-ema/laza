@@ -25,7 +25,7 @@ class Drawercontentlistview extends StatelessWidget {
           height: kTopSpace,
         ),
         Padding(
-          padding: EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: CustomIcon(
             contetnt: SvgPicture.asset(AssetData.openedMenu,
                 color: Theme.of(context).brightness == Brightness.dark
