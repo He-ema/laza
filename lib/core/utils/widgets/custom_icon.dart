@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomIcon extends StatelessWidget {
-  const CustomIcon({super.key});
-
+  const CustomIcon({super.key, this.contetnt});
+  final Widget? contetnt;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Container(
+          padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(50),
           ),
-          child: IconButton(
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
-              icon: Icon(Icons.arrow_back)),
+          child: GestureDetector(
+            onTap: () {
+              GoRouter.of(context).pop();
+            },
+            child: Icon(Icons.arrow_back),
+          ),
         )
       ],
     );
