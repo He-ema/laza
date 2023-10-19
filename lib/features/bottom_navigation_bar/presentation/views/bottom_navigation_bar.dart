@@ -18,12 +18,21 @@ class BottomNavigationBarView extends StatefulWidget {
 
 class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
   int currentIndex = 0;
-  List views = [
-    HomeView(),
-    FavouriteView(),
-    Container(),
-    Container(),
-  ];
+
+  late List views;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    views = [
+      HomeView(email: widget.email),
+      FavouriteView(),
+      Container(),
+      Container(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

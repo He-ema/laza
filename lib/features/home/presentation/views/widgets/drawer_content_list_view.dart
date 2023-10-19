@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:laza/features/home/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:laza/features/home/presentation/views/widgets/theme_switching_list_tile.dart';
 
 import '../../../../../constants.dart';
@@ -14,8 +15,9 @@ import 'drawer_info_list_tile.dart';
 class Drawercontentlistview extends StatelessWidget {
   const Drawercontentlistview({
     super.key,
+    required this.email,
   });
-
+  final String email;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -36,7 +38,10 @@ class Drawercontentlistview extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const DrawerInfoListTile(),
+        BlocProvider(
+          create: (context) => UserCubit(),
+          child: DrawerInfoListTile(email: email),
+        ),
         const ThemeSwitchingListTile(),
         ListTile(
           leading: const Icon(Icons.error_outline),

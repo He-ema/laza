@@ -38,6 +38,7 @@ class _GetStartedViewBodyState extends State<GetStartedViewBody> {
         }
 
         if (state is AuthSuccess) {
+          AuthCubit().close();
           isLoading = false;
           setState(() {});
           GoRouter.of(context).pushReplacement(AppRouter.BottomNavBarRoute,
