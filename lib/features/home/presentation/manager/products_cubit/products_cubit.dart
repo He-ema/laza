@@ -17,11 +17,10 @@ class ProductsCubit extends Cubit<ProductsState> {
       CollectionReference _product =
           FirebaseFirestore.instance.collection(kProductsCollectionReference);
 
-      _product.snapshots().listen((event) {
-        for (var doc in event.docs) {
-          tempList.add(ProductModel.fromJson(doc));
-        }
-      });
+      var data = await _product.get();
+      for (var element in data.docs) {
+        tempList.add(ProductModel.fromJson(element));
+      }
       emit(ProductsSuccess(products: tempList));
     } catch (e) {
       emit(ProductsFailure(errorMessage: e.toString()));
