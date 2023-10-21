@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:laza/features/home/presentation/manager/products_cubit/products_cubit.dart';
 
 import 'app_bar.dart';
 import 'brands_list_view.dart';
@@ -10,15 +12,18 @@ class HomeViewBody extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
       slivers: [
-        MyAppBar(),
-        SliverToBoxAdapter(
+        const MyAppBar(),
+        const SliverToBoxAdapter(
           child: BrandsListView(),
         ),
         SliverToBoxAdapter(
           child: Expanded(
-            child: ItemsGridView(),
+            child: BlocProvider(
+              create: (context) => ProductsCubit(),
+              child: const ItemsGridView(),
+            ),
           ),
         ),
       ],
