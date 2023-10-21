@@ -17,7 +17,7 @@ class ProductsCubit extends Cubit<ProductsState> {
       CollectionReference _product =
           FirebaseFirestore.instance.collection(kProductsCollectionReference);
 
-      var data = await _product.get();
+      var data = await _product.orderBy(kPrice).get();
       for (var element in data.docs) {
         tempList.add(ProductModel.fromJson(element));
       }

@@ -45,8 +45,8 @@ class BrandItem extends StatelessWidget {
           const SizedBox(
             width: 5,
           ),
-          const Text(
-            'Adidas',
+          Text(
+            name,
             style: Styles.textstyle15,
           ),
         ],

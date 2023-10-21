@@ -13,17 +13,19 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      // physics: BouncingScrollPhysics(),
       slivers: [
         const MyAppBar(),
         const SliverToBoxAdapter(
           child: BrandsListView(),
         ),
         SliverToBoxAdapter(
-          child: Expanded(
-            child: BlocProvider(
-              create: (context) => ProductsCubit(),
-              child: const ItemsGridView(),
-            ),
+          child: Container(),
+        ),
+        SliverFillRemaining(
+          child: BlocProvider(
+            create: (context) => ProductsCubit(),
+            child: const ItemsGridView(),
           ),
         ),
       ],

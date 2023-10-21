@@ -28,11 +28,12 @@ class _ItemsGridViewState extends State<ItemsGridView> {
       builder: (context, state) {
         if (state is ProductsSuccess) {
           return GridView.builder(
-            padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
-            shrinkWrap: true,
+            padding:
+                const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 50),
+            // shrinkWrap: true,
             itemCount: state.products.length,
-            physics: const BouncingScrollPhysics(),
-            clipBehavior: Clip.none,
+            physics: const NeverScrollableScrollPhysics(),
+
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, //number of columns on the screen
               childAspectRatio: 0.6, // نسبىة العرض للطول
@@ -45,11 +46,11 @@ class _ItemsGridViewState extends State<ItemsGridView> {
             },
           );
         } else if (state is ProductsLoading) {
-          return Center(
+          return const Center(
             child: Text('Loading'),
           );
         } else {
-          return Center(
+          return const Center(
             child: Text('Error'),
           );
         }
