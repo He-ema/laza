@@ -27,7 +27,6 @@ class _ItemsGridViewState extends State<ItemsGridView> {
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
         if (state is ProductsSuccess) {
-          print(state.products.length);
           return GridView.builder(
             padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
             shrinkWrap: true,

@@ -25,8 +25,12 @@ class GridItem extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: product.image,
               fit: BoxFit.fill,
-              placeholder: (context, url) => SpinKitSpinningLines(
-                  color: Theme.of(context).colorScheme.tertiary),
+              placeholder: (context, url) => Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: 200,
+                child: SpinKitSpinningLines(
+                    color: Theme.of(context).colorScheme.tertiary),
+              ),
             ),
           ),
         ),
