@@ -28,12 +28,12 @@ class _ItemsGridViewState extends State<ItemsGridView> {
       builder: (context, state) {
         if (state is ProductsSuccess) {
           return GridView.builder(
+            shrinkWrap: true,
             padding:
                 const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 50),
             // shrinkWrap: true,
             itemCount: state.products.length,
             physics: const NeverScrollableScrollPhysics(),
-
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, //number of columns on the screen
               childAspectRatio: 0.6, // نسبىة العرض للطول
