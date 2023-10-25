@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
       drawer: MyDrawer(
         email: email,
       ),
-      body: const HomeViewBody(),
+      body: HomeViewBody(email: email),
       // appBar: AppBar(),
     );
   }

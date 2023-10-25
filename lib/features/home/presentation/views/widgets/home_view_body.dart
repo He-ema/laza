@@ -9,7 +9,9 @@ import 'items_grid_view.dart';
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
     super.key,
+    required this.email,
   });
+  final String email;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -20,13 +22,12 @@ class HomeViewBody extends StatelessWidget {
           child: BrandsListView(),
         ),
         SliverToBoxAdapter(
-          child: Container(),
-        ),
-        SliverToBoxAdapter(
           child: Expanded(
             child: BlocProvider(
               create: (context) => ProductsCubit(),
-              child: ItemsGridView(),
+              child: ItemsGridView(
+                email: email,
+              ),
             ),
           ),
         ),

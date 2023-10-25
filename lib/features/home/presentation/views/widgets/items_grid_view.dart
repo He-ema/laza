@@ -8,8 +8,9 @@ import 'grei_item.dart';
 class ItemsGridView extends StatefulWidget {
   const ItemsGridView({
     super.key,
+    required this.email,
   });
-
+  final String email;
   @override
   State<ItemsGridView> createState() => _ItemsGridViewState();
 }
@@ -41,6 +42,7 @@ class _ItemsGridViewState extends State<ItemsGridView> {
             ),
             itemBuilder: (context, index) {
               return GridItem(
+                email: widget.email,
                 product: state.products[index],
               );
             },
