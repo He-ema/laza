@@ -12,6 +12,11 @@ abstract class Styles {
     fontSize: 25,
     fontWeight: FontWeight.w600,
   );
+  static const textstyle22 = TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+  );
   static const textstyle17 = TextStyle(
     fontFamily: 'Inter',
     fontSize: 17,
