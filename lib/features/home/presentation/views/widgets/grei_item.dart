@@ -49,6 +49,7 @@ class _GridItemState extends State<GridItem> {
               return DetailsView(
                 product: widget.product,
                 email: widget.email,
+                changeColor: changeColor,
               );
             }));
           },

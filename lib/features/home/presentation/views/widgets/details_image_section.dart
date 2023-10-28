@@ -10,9 +10,11 @@ class ImageSection extends StatelessWidget {
   const ImageSection({
     super.key,
     required this.product,
+    required this.changeColor,
   });
 
   final ProductModel product;
+  final VoidCallback changeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class ImageSection extends StatelessWidget {
                 contetnt: const Icon(Icons.arrow_back, color: Colors.black),
                 onTap: () {
                   GoRouter.of(context).pop();
+                  changeColor();
                 },
               ),
             ),

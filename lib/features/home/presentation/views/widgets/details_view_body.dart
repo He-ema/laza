@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza/constants.dart';
 import 'package:laza/core/utils/styles.dart';
-import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/features/home/data/product_model/product_model.dart';
-import 'package:laza/features/home/presentation/manager/cubit/details_cubit.dart';
 import 'package:laza/features/home/presentation/views/widgets/size_item.dart';
 
 import 'details_button.dart';
@@ -12,15 +9,19 @@ import 'details_image_section.dart';
 
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody(
-      {super.key, required this.product, required this.email});
+      {super.key,
+      required this.product,
+      required this.email,
+      required this.changeColor});
   final ProductModel product;
   final String email;
+  final VoidCallback changeColor;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       physics: const NeverScrollableScrollPhysics(),
       slivers: [
-        ImageSection(product: product),
+        ImageSection(product: product, changeColor: changeColor),
         SliverFillRemaining(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

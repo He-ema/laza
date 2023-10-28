@@ -5,9 +5,14 @@ import 'package:laza/features/home/presentation/manager/cubit/details_cubit.dart
 import 'package:laza/features/home/presentation/views/widgets/details_view_body.dart';
 
 class DetailsView extends StatelessWidget {
-  const DetailsView({super.key, required this.product, required this.email});
+  const DetailsView(
+      {super.key,
+      required this.product,
+      required this.email,
+      required this.changeColor});
   final ProductModel product;
   final String email;
+  final VoidCallback changeColor;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +22,7 @@ class DetailsView extends StatelessWidget {
         child: DetailsViewBody(
           product: product,
           email: email,
+          changeColor: changeColor,
         ),
       ),
     );
