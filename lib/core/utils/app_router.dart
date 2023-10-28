@@ -50,11 +50,6 @@ abstract class AppRouter {
         path: otpViewRoute,
         builder: (context, state) => const OtpView(),
       ),
-      GoRoute(
-        path: detailsRoute,
-        builder: (context, state) =>
-            DetailsView(product: state.extra as ProductModel),
-      ),
     ],
   );
 }

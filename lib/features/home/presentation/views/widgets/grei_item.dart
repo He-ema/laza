@@ -7,6 +7,7 @@ import 'package:laza/core/utils/app_router.dart';
 import 'package:laza/features/home/data/product_model/product_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../../../../core/utils/styles.dart';
+import '../details_view.dart';
 
 class GridItem extends StatefulWidget {
   const GridItem({
@@ -43,8 +44,13 @@ class _GridItemState extends State<GridItem> {
       children: [
         GestureDetector(
           onTap: () {
-            GoRouter.of(context)
-                .push(AppRouter.detailsRoute, extra: widget.product);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (BuildContext context) {
+              return DetailsView(
+                product: widget.product,
+                email: widget.email,
+              );
+            }));
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,

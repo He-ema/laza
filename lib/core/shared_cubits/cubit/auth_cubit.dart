@@ -118,6 +118,8 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthSuccess());
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
+      print('The error is ');
+      print(e.toString());
       emit(AuthFailure(
           erroHeader: 'Error',
           errorMessage: 'Something went wrong , try again'));
