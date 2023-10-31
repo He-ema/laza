@@ -128,6 +128,7 @@ class _GridItemState extends State<GridItem> {
           kImage: widget.product.image,
           kPrice: widget.product.price,
           kQuantity: 1,
+          kDescription: widget.product.description,
           kTime: DateTime.now(),
         });
       }

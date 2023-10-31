@@ -28,7 +28,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
     super.initState();
     views = [
       HomeView(email: widget.email),
-      FavouriteView(),
+      FavouriteView(email: widget.email),
       Container(),
       Container(),
     ];

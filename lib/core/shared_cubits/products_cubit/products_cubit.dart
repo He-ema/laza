@@ -27,4 +27,22 @@ class ProductsCubit extends Cubit<ProductsState> {
       print(e.toString());
     }
   }
+
+  Future<void> getFavouriteOrCartProducts({required String email}) async {
+    emit(ProductsLoading());
+
+    try {
+      CollectionReference _product = FirebaseFirestore.instance
+          .collection(email + kFavouriteCollectionReference);
+
+      var data = await _product.orderBy(kTime).get();
+      for (var element in data.docs) {
+        tempList.add(ProductModel.fromJson(element));
+      }
+      emit(ProductsSuccess(products: tempList));
+    } catch (e) {
+      emit(ProductsFailure(errorMessage: e.toString()));
+      print(e.toString());
+    }
+  }
 }
