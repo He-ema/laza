@@ -23,7 +23,7 @@ class ProductContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
       height: 150,
       child: Row(
@@ -68,13 +68,17 @@ class ProductContainer extends StatelessWidget {
                       IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.keyboard_arrow_down),
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                       ),
                       Text(
                         product.quantity.toString(),
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.keyboard_arrow_down),
+                        icon: const Icon(Icons.keyboard_arrow_up),
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.1,

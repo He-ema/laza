@@ -34,6 +34,7 @@ class _FavouritesListViewState extends State<FavouritesListView> {
               padding:
                   const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               child: ListView.builder(
+                padding: EdgeInsets.zero,
                 itemCount: state.products.length,
                 itemBuilder: (context, index) => ProductContainer(
                   product: state.products[index],

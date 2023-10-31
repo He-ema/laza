@@ -25,8 +25,10 @@ class FavouriteViewBody extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 20,
+        Divider(
+          height: 40,
+          endIndent: 50,
+          indent: 50,
         ),
         BlocProvider(
           create: (context) => ProductsCubit(),
