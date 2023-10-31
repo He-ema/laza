@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/constants.dart';
 import 'package:laza/core/utils/styles.dart';
-import 'package:laza/features/home/data/product_model/product_model.dart';
+import 'package:laza/core/shared_models/product_model/product_model.dart';
 import 'package:laza/features/home/presentation/views/widgets/size_item.dart';
 
 import 'details_button.dart';

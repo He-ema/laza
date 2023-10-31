@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:laza/features/home/presentation/manager/products_cubit/products_cubit.dart';
 
+import '../../../../../core/shared_cubits/products_cubit/products_cubit.dart';
 import '../../../../../core/utils/styles.dart';
 import 'grei_item.dart';
 

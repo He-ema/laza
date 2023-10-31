@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza/constants.dart';
-import 'package:laza/features/home/data/product_model/product_model.dart';
+import 'package:laza/core/shared_models/product_model/product_model.dart';
 
 import '../../../../../core/utils/widgets/custom_button.dart';
-import '../../manager/cubit/details_cubit.dart';
+import '../../manager/details_cubit/details_cubit.dart';
 
 class MyButtonDetails extends StatefulWidget {
   const MyButtonDetails(

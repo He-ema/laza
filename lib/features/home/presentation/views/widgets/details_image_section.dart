@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/widgets/custom_icon.dart';
-import '../../../data/product_model/product_model.dart';
+import '../../../../../core/shared_models/product_model/product_model.dart';
 
 class ImageSection extends StatelessWidget {
   const ImageSection({

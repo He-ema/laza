@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:laza/constants.dart';
-import 'package:laza/core/theme/theme.dart';
-import 'package:laza/core/utils/asset_data.dart';
 import 'package:laza/core/utils/styles.dart';
 
 class FavouriteViewBody extends StatelessWidget {
@@ -12,12 +9,35 @@ class FavouriteViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
+        SizedBox(
           height: kTopSpace,
         ),
-        Center(
-            // child: BrandItem(),
-            )
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Favourites',
+              style: Styles.textstyle17,
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) => Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                width: 200,
+                height: 200,
+                color: kPrimaryColor,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

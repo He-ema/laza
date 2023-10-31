@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:laza/constants.dart';
-import 'package:laza/features/home/data/product_model/product_model.dart';
+import 'package:laza/core/shared_models/product_model/product_model.dart';
 import 'package:meta/meta.dart';
 
 part 'products_state.dart';

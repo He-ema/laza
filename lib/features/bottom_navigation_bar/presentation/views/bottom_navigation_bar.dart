@@ -1,3 +1,4 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -35,51 +36,54 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: views.elementAt(currentIndex),
-      bottomNavigationBar: GNav(
-        onTabChange: (value) {
-          currentIndex = value;
-          setState(() {});
-        },
-        tabBackgroundColor:
-            Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
-        activeColor: BlocProvider.of<ThemeCubit>(context).themeData == lightMode
-            ? Theme.of(context).colorScheme.tertiary
-            : kPrimaryColor,
-        tabMargin: const EdgeInsets.all(10),
-        gap: 8,
-        color: BlocProvider.of<ThemeCubit>(context).themeData == lightMode
-            ? Theme.of(context).colorScheme.tertiary.withOpacity(0.5)
-            : Colors.white54,
-        tabBorderRadius: 15,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        padding: const EdgeInsets.all(40),
-        curve: Curves.easeInQuart,
-        // ignore: prefer_const_literals_to_create_immutables
-        tabs: [
-          const GButton(
-            icon: Icons.home,
-            text: 'Home',
-            padding: EdgeInsets.all(15),
-          ),
-          const GButton(
-            icon: Icons.favorite,
-            text: 'Favourite',
-            padding: EdgeInsets.all(15),
-          ),
-          const GButton(
-            icon: Icons.shopping_cart,
-            text: 'Cart',
-            padding: EdgeInsets.all(15),
-          ),
-          const GButton(
-            icon: Icons.wallet,
-            text: 'Payment',
-            padding: EdgeInsets.all(15),
-          ),
-        ],
+    return ThemeSwitchingArea(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        body: views.elementAt(currentIndex),
+        bottomNavigationBar: GNav(
+          onTabChange: (value) {
+            currentIndex = value;
+            setState(() {});
+          },
+          tabBackgroundColor:
+              Theme.of(context).colorScheme.tertiary.withOpacity(0.5),
+          activeColor:
+              BlocProvider.of<ThemeCubit>(context).themeData == lightMode
+                  ? Theme.of(context).colorScheme.tertiary
+                  : kPrimaryColor,
+          tabMargin: const EdgeInsets.all(10),
+          gap: 8,
+          color: BlocProvider.of<ThemeCubit>(context).themeData == lightMode
+              ? Theme.of(context).colorScheme.tertiary.withOpacity(0.5)
+              : Colors.white54,
+          tabBorderRadius: 15,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          padding: const EdgeInsets.all(40),
+          curve: Curves.easeInQuart,
+          // ignore: prefer_const_literals_to_create_immutables
+          tabs: [
+            const GButton(
+              icon: Icons.home,
+              text: 'Home',
+              padding: EdgeInsets.all(15),
+            ),
+            const GButton(
+              icon: Icons.favorite,
+              text: 'Favourite',
+              padding: EdgeInsets.all(15),
+            ),
+            const GButton(
+              icon: Icons.shopping_cart,
+              text: 'Cart',
+              padding: EdgeInsets.all(15),
+            ),
+            const GButton(
+              icon: Icons.wallet,
+              text: 'Payment',
+              padding: EdgeInsets.all(15),
+            ),
+          ],
+        ),
       ),
     );
   }

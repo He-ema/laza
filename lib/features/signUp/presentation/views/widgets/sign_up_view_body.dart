@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:laza/constants.dart';
-import 'package:laza/core/shared_cubits/cubit/auth_cubit.dart';
 import 'package:laza/core/utils/app_router.dart';
 import 'package:laza/core/utils/functions/show_awesome_dialouge.dart';
 import 'package:laza/core/utils/styles.dart';
@@ -13,6 +12,7 @@ import 'package:laza/features/signUp/presentation/views/widgets/already_have_acc
 import 'package:laza/features/signUp/presentation/views/widgets/sign_up_fields_section.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../../core/shared_cubits/auth_cubit/auth_cubit.dart';
 import '../../../../../core/utils/widgets/custom_text_form_field.dart';
 
 class SignUpViewBody extends StatefulWidget {

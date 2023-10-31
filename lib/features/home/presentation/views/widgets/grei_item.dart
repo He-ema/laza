@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:laza/constants.dart';
 import 'package:laza/core/utils/app_router.dart';
-import 'package:laza/features/home/data/product_model/product_model.dart';
+import 'package:laza/core/shared_models/product_model/product_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../../../../core/utils/styles.dart';
 import '../details_view.dart';

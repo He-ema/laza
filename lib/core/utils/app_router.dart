@@ -1,6 +1,6 @@
 import 'package:laza/features/get_started/presentation/views/get_started_view.dart';
 import 'package:laza/features/bottom_navigation_bar/presentation/views/bottom_navigation_bar.dart';
-import 'package:laza/features/home/data/product_model/product_model.dart';
+import 'package:laza/core/shared_models/product_model/product_model.dart';
 import 'package:laza/features/home/presentation/views/details_view.dart';
 import 'package:laza/features/intro/presntation/views/intro_view.dart';
 import 'package:laza/features/signIn/presentation/views/sign_in_view.dart';

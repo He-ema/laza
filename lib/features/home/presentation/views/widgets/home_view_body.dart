@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:laza/features/home/presentation/manager/products_cubit/products_cubit.dart';
 
+import '../../../../../core/shared_cubits/products_cubit/products_cubit.dart';
 import 'app_bar.dart';
 import 'brands_list_view.dart';
 import 'items_grid_view.dart';
