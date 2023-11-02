@@ -125,7 +125,7 @@ class _FavouritesListViewState extends State<FavouritesListView> {
                                       kFavouriteCollectionReference);
                               favourite.doc(state.products[i].name).delete();
                             }
-                            removeAllFromList();
+                            removeAllFromList(state);
                           },
                           icon: const Icon(
                             Icons.shopping_cart,
@@ -165,7 +165,7 @@ class _FavouritesListViewState extends State<FavouritesListView> {
     );
   }
 
-  void removeAllFromList() {
+  Future<void> removeAllFromList(ProductsSuccess state) async {
     _listKey.currentState!.removeAllItems(
       (context, animation) {
         return SlideTransition(
@@ -193,6 +193,9 @@ class _FavouritesListViewState extends State<FavouritesListView> {
       },
       duration: const Duration(milliseconds: 2000),
     );
+    Future.delayed(Duration(milliseconds: 2000), () {
+      state.products.clear();
+    });
   }
 
   Future<void> deleteListItem(int index, BuildContext context,

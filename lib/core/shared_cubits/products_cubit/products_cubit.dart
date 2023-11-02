@@ -28,12 +28,16 @@ class ProductsCubit extends Cubit<ProductsState> {
     }
   }
 
-  Future<void> getFavouriteOrCartProducts({required String email}) async {
+  Future<void> getFavouriteOrCartProducts(
+      {required String email, bool isCart = false}) async {
     emit(ProductsLoading());
 
     try {
-      CollectionReference _product = FirebaseFirestore.instance
-          .collection(email + kFavouriteCollectionReference);
+      CollectionReference _product = FirebaseFirestore.instance.collection(
+          email +
+              (isCart
+                  ? kCartCollectionReference
+                  : kFavouriteCollectionReference));
 
       var data = await _product.orderBy(kTime).get();
       for (var element in data.docs) {

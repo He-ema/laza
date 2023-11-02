@@ -20,12 +20,12 @@ class CartViewBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Favourites',
-              style: Styles.textstyle17,
+              'Cart',
+              style: Styles.textstyle22,
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 40,
           endIndent: 50,
           indent: 50,

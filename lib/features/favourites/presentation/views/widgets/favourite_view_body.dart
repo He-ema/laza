@@ -21,7 +21,7 @@ class FavouriteViewBody extends StatelessWidget {
           children: [
             Text(
               'Favourites',
-              style: Styles.textstyle17,
+              style: Styles.textstyle22,
             ),
           ],
         ),
