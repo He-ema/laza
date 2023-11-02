@@ -44,13 +44,16 @@ class DetailsCubit extends Cubit<DetailsState> {
           userFavourite.doc(product.name).delete();
           emit(DetailsSuccess(false));
         } else {
-          userFavourite.doc(product.name).set({
-            kName: product.name,
-            kImage: product.image,
-            kPrice: product.price,
-            kQuantity: 1,
-            kTime: DateTime.now(),
-          });
+          userFavourite.doc(product.name).set(
+            {
+              kName: product.name,
+              kImage: product.image,
+              kPrice: product.price,
+              kDescription: product.description,
+              kQuantity: 1,
+              kTime: DateTime.now(),
+            },
+          );
           emit(DetailsSuccess(true));
         }
       });
