@@ -16,6 +16,7 @@ class FavouritesListView extends StatefulWidget {
 }
 
 class _FavouritesListViewState extends State<FavouritesListView> {
+  bool startAnimation = false;
   @override
   void initState() {
     // TODO: implement initState
@@ -29,16 +30,24 @@ class _FavouritesListViewState extends State<FavouritesListView> {
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
         if (state is ProductsSuccess) {
+          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+            setState(() {
+              startAnimation = true;
+            });
+          });
           return Expanded(
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 padding: EdgeInsets.zero,
                 itemCount: state.products.length,
                 itemBuilder: (context, index) => ProductContainer(
                   product: state.products[index],
                   email: widget.email,
+                  index: index,
+                  startAnimation: startAnimation,
                 ),
               ),
             ),

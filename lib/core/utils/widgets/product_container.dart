@@ -10,12 +10,20 @@ class ProductContainer extends StatelessWidget {
     super.key,
     required this.product,
     required this.email,
+    required this.index,
+    required this.startAnimation,
   });
   final String email;
   final ProductModel product;
+  final int index;
+  final bool startAnimation;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      transform: Matrix4.translationValues(
+          startAnimation ? 0 : MediaQuery.of(context).size.width, 0, 0),
+      curve: Curves.easeInOut,
+      duration: Duration(milliseconds: 300 + (index * 100)),
       decoration: BoxDecoration(
         color: Theme.of(context).brightness == Brightness.light
             ? Theme.of(context).colorScheme.secondary.withOpacity(0.7)
