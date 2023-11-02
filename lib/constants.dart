@@ -7,6 +7,7 @@ const kHorizontalPadding = 20.0;
 const kUsersCollectionReference = 'users';
 const kProductsCollectionReference = 'products';
 const kFavouriteCollectionReference = 'favourites';
+const kCartCollectionReference = 'cart';
 const kVerified = 'verified';
 const kName = 'name';
 const kEmail = 'email';
