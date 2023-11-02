@@ -31,7 +31,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
     views = [
       HomeView(email: widget.email),
       FavouriteView(email: widget.email),
-      CartView(),
+      CartView(email: widget.email),
       Container(),
     ];
   }

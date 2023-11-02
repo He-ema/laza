@@ -25,7 +25,7 @@ class FavouriteViewBody extends StatelessWidget {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 40,
           endIndent: 50,
           indent: 50,
