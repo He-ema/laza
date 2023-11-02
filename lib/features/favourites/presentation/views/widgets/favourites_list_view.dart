@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../constants.dart';
-import '../../../../core/shared_cubits/products_cubit/products_cubit.dart';
-import '../../../../core/utils/widgets/product_container.dart';
+import '../../../../../constants.dart';
+import '../../../../../core/shared_cubits/products_cubit/products_cubit.dart';
+import '../../../../../core/utils/widgets/product_container.dart';
 
 class FavouritesListView extends StatefulWidget {
   const FavouritesListView({

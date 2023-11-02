@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'favourite_view_body.dart';
+import 'widgets/favourite_view_body.dart';
 
 class FavouriteView extends StatelessWidget {
   const FavouriteView({super.key, required this.email});
