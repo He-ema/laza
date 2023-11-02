@@ -23,7 +23,7 @@ class ProductContainer extends StatelessWidget {
       transform: Matrix4.translationValues(
           startAnimation ? 0 : MediaQuery.of(context).size.width, 0, 0),
       curve: Curves.easeInOut,
-      duration: Duration(milliseconds: 300 + (index * 100)),
+      duration: Duration(milliseconds: 300 + (index * 250)),
       decoration: BoxDecoration(
         color: Theme.of(context).brightness == Brightness.light
             ? Theme.of(context).colorScheme.secondary.withOpacity(0.7)

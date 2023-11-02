@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/shared_cubits/products_cubit/products_cubit.dart';
 import '../../../../../core/utils/widgets/product_container.dart';
+import '../../../../../core/utils/widgets/skelton.dart';
 
 class FavouritesListView extends StatefulWidget {
   const FavouritesListView({
@@ -57,8 +58,23 @@ class _FavouritesListViewState extends State<FavouritesListView> {
             child: Text(state.errorMessage),
           );
         } else {
-          return const Center(
-            child: Text('Loading'),
+          return Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: 8,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.only(
+                    bottom: 20,
+                    left: kHorizontalPadding,
+                    right: kHorizontalPadding),
+                child: Skelton(
+                  width: double.infinity,
+                  height: 150,
+                  opacity: 0.1,
+                  borderRaduis: 15,
+                ),
+              ),
+            ),
           );
         }
       },
