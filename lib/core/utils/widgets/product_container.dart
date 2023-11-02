@@ -31,7 +31,7 @@ class ProductContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.only(bottom: 20),
+      // margin: const EdgeInsets.only(bottom: 20),
       width: double.infinity,
       height: 150,
       child: Row(

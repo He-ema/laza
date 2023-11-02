@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/shared_cubits/products_cubit/products_cubit.dart';
@@ -44,11 +46,26 @@ class _FavouritesListViewState extends State<FavouritesListView> {
                 physics: const BouncingScrollPhysics(),
                 padding: EdgeInsets.zero,
                 itemCount: state.products.length,
-                itemBuilder: (context, index) => ProductContainer(
-                  product: state.products[index],
-                  email: widget.email,
-                  index: index,
-                  startAnimation: startAnimation,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Slidable(
+                    startActionPane:
+                        ActionPane(motion: const BehindMotion(), children: [
+                      SlidableAction(
+                        label: 'Delete',
+                        onPressed: (context) async {},
+                        icon: Icons.delete,
+                        backgroundColor: Colors.red,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ]),
+                    child: ProductContainer(
+                      product: state.products[index],
+                      email: widget.email,
+                      index: index,
+                      startAnimation: startAnimation,
+                    ),
+                  ),
                 ),
               ),
             ),
