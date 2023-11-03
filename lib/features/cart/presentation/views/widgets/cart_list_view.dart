@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:laza/core/shared_models/product_model/product_model.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/shared_cubits/products_cubit/products_cubit.dart';
+import '../../../../../core/stripe_payment/payment_manager.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/product_container.dart';
 import '../../../../../core/utils/widgets/skelton.dart';
@@ -24,6 +26,7 @@ class CartListView extends StatefulWidget {
 class _CartListViewState extends State<CartListView> {
   bool startAnimation = false;
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -59,6 +62,7 @@ class _CartListViewState extends State<CartListView> {
                 startAnimation = true;
               });
             });
+            int total = state.total!.toInt();
             return Expanded(
               child: Stack(
                 children: [
@@ -100,33 +104,57 @@ class _CartListViewState extends State<CartListView> {
                   Positioned(
                       bottom: 5,
                       right: 10,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: IconButton(
-                          onPressed: () {
-                            CollectionReference cart =
-                                FirebaseFirestore.instance.collection(
-                                    widget.email + kCartCollectionReference);
-                            for (int i = 0; i < state.products.length; i++) {
-                              cart.doc(state.products[i].name).set({
-                                kName: state.products[i].name,
-                                kImage: state.products[i].image,
-                                kPrice: state.products[i].price,
-                                kDescription: state.products[i].description,
-                                kQuantity: state.products[i].quantity,
-                                kTime: DateTime.now(),
-                              });
-                            }
-                            removeAllFromList();
-                          },
-                          icon: const Icon(
-                            Icons.shopping_cart,
-                            color: Colors.white,
+                      child: Row(
+                        children: [
+                          Text(
+                            'Total : ${total} ',
+                            style: Styles.textstyle17.copyWith(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.w900,
+                            ),
                           ),
-                        ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.60,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: IconButton(
+                              onPressed: () async {
+                                await PaymentManager.makePayment(total, 'USD');
+                                // if (await PaymentManager.makePayment(
+                                //     total, 'USD')) {
+                                //   removeAllFromList(state);
+                                //   CollectionReference payment =
+                                //       FirebaseFirestore.instance
+                                //           .collection('${widget.email}pay');
+                                //   payment.add({
+                                //     kTime: DateTime.now(),
+                                //     kTotal: total,
+                                //   });
+                                //   List<ProductModel> proList = state.products;
+                                //   CollectionReference cart = FirebaseFirestore
+                                //       .instance
+                                //       .collection(widget.email +
+                                //           kCartCollectionReference);
+                                //   await Future.delayed(
+                                //       const Duration(seconds: 2));
+                                //   for (int i = 0;
+                                //       i < state.products.length;
+                                //       i++) {
+                                //     cart.doc(proList[i].name).delete();
+                                //   }
+                                // }
+                              },
+                              icon: const Icon(
+                                Icons.money_off_sharp,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       )),
                 ],
               ),
@@ -160,7 +188,7 @@ class _CartListViewState extends State<CartListView> {
     );
   }
 
-  void removeAllFromList() {
+  Future<void> removeAllFromList(ProductsSuccess state) async {
     _listKey.currentState!.removeAllItems(
       (context, animation) {
         return SlideTransition(
@@ -188,6 +216,9 @@ class _CartListViewState extends State<CartListView> {
       },
       duration: const Duration(milliseconds: 2000),
     );
+    Future.delayed(Duration(milliseconds: 2000), () {
+      state.products.clear();
+    });
   }
 
   Future<void> deleteListItem(int index, BuildContext context,

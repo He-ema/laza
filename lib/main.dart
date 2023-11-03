@@ -2,16 +2,21 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:laza/core/theme/theme_cubit/theme_cubit.dart';
 import 'package:laza/core/utils/app_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza/simple_bloc_observer.dart';
 
 import 'core/shared_cubits/auth_cubit/auth_cubit.dart';
+import 'core/stripe_payment/stripe_keys.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = ApiKeys.publishableKey;
+  Stripe.merchantIdentifier = 'any string works';
+  await Stripe.instance.applySettings();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));

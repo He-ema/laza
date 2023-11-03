@@ -9,8 +9,9 @@ final class ProductsLoading extends ProductsState {}
 
 final class ProductsSuccess extends ProductsState {
   final List<ProductModel> products;
+  final double? total;
 
-  ProductsSuccess({required this.products});
+  ProductsSuccess({required this.products, @required this.total});
 }
 
 final class ProductsFailure extends ProductsState {

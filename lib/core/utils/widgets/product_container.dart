@@ -70,32 +70,22 @@ class ProductContainer extends StatelessWidget {
                 style: Styles.textstyle13.copyWith(fontWeight: FontWeight.w900),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.keyboard_arrow_down),
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                      ),
-                      Text(
-                        product.quantity.toString(),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.keyboard_arrow_up),
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.1,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.delete),
-                      ),
-                    ],
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                  ),
+                  Text(
+                    product.quantity.toString(),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.keyboard_arrow_up),
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                   ),
                 ],
               )

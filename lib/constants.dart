@@ -15,4 +15,5 @@ const kImage = 'image';
 const kPrice = 'price';
 const kQuantity = 'quantity';
 const kTime = 'time';
+const kTotal = 'total';
 const kDescription = 'description';

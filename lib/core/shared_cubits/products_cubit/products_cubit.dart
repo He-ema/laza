@@ -40,10 +40,14 @@ class ProductsCubit extends Cubit<ProductsState> {
                   : kFavouriteCollectionReference));
 
       var data = await _product.orderBy(kTime).get();
+      double total = 0;
+      int i = 0;
       for (var element in data.docs) {
         tempList.add(ProductModel.fromJson(element));
+        total += tempList[i].price;
+        i++;
       }
-      emit(ProductsSuccess(products: tempList));
+      emit(ProductsSuccess(products: tempList, total: total));
     } catch (e) {
       emit(ProductsFailure(errorMessage: e.toString()));
       print(e.toString());
