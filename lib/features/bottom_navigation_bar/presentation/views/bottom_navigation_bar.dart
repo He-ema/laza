@@ -9,6 +9,7 @@ import 'package:laza/features/favourites/presentation/views/favourite_view.dart'
 import 'package:laza/features/home/presentation/views/home_view.dart';
 
 import '../../../cart/presentation/views/cart_view.dart';
+import '../../../payment/presentation/views/payment_view.dart';
 
 class BottomNavigationBarView extends StatefulWidget {
   const BottomNavigationBarView({super.key, required this.email});
@@ -32,7 +33,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
       HomeView(email: widget.email),
       FavouriteView(email: widget.email),
       CartView(email: widget.email),
-      Container(),
+      PaymentView(email: widget.email),
     ];
   }
 
