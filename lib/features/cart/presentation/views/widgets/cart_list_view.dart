@@ -123,30 +123,27 @@ class _CartListViewState extends State<CartListView> {
                             ),
                             child: IconButton(
                               onPressed: () async {
-                                await PaymentManager.makePayment(total, 'USD');
-                                // if (await PaymentManager.makePayment(
-                                //     total, 'USD')) {
-                                //   removeAllFromList(state);
-                                //   CollectionReference payment =
-                                //       FirebaseFirestore.instance
-                                //           .collection('${widget.email}pay');
-                                //   payment.add({
-                                //     kTime: DateTime.now(),
-                                //     kTotal: total,
-                                //   });
-                                //   List<ProductModel> proList = state.products;
-                                //   CollectionReference cart = FirebaseFirestore
-                                //       .instance
-                                //       .collection(widget.email +
-                                //           kCartCollectionReference);
-                                //   await Future.delayed(
-                                //       const Duration(seconds: 2));
-                                //   for (int i = 0;
-                                //       i < state.products.length;
-                                //       i++) {
-                                //     cart.doc(proList[i].name).delete();
-                                //   }
-                                // }
+                                if (await PaymentManager.makePayment(
+                                    total, 'USD', context)) {
+                                  CollectionReference payment =
+                                      FirebaseFirestore.instance
+                                          .collection('${widget.email}pay');
+                                  payment.add({
+                                    kTime: DateTime.now(),
+                                    kTotal: total,
+                                  });
+                                  List<ProductModel> proList = state.products;
+                                  CollectionReference cart = FirebaseFirestore
+                                      .instance
+                                      .collection(widget.email +
+                                          kCartCollectionReference);
+                                  await Future.delayed(
+                                      const Duration(seconds: 2));
+                                  for (var element in proList) {
+                                    await cart.doc(element.name).delete();
+                                  }
+                                  removeAllFromList(state);
+                                }
                               },
                               icon: const Icon(
                                 Icons.money_off_sharp,
@@ -202,12 +199,12 @@ class _CartListViewState extends State<CartListView> {
               width: MediaQuery.of(context).size.width * 0.75,
               height: MediaQuery.of(context).size.height * 0.15,
               decoration: BoxDecoration(
-                color: kPrimaryColor,
+                color: Colors.green,
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Center(
                   child: Text(
-                'Added to cart',
+                'Success',
                 style: Styles.textstyle17.copyWith(color: Colors.white),
               )),
             ),
