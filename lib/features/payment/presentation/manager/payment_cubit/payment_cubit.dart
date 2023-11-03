@@ -12,7 +12,7 @@ class PaymentCubit extends Cubit<PaymentState> {
 
   List<PaymentModel> tempList = [];
 
-  Future<void> getFavouriteOrCartProducts({required String email}) async {
+  Future<void> getPaymentData({required String email}) async {
     emit(PaymentLoading());
 
     try {

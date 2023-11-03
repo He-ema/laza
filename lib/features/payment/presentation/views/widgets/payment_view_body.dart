@@ -32,7 +32,7 @@ class PaymentViewBody extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => PaymentCubit(),
-          child: PaymentListView(),
+          child: PaymentListView(email: email),
         ),
       ],
     );

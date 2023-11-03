@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:laza/constants.dart';
 
 class PaymentModel {
-  final String date;
+  final Timestamp date;
   final int total;
 
   PaymentModel({required this.date, required this.total});
